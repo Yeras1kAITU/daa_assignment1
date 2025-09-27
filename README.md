@@ -37,6 +37,7 @@
 
 ## Performance Measurements
 
+Compile by: `javac cli\ExperimentRunner.java algorithms\MergeSort.java algorithms\QuickSort.java metrics\*.java`
 Run experiments with: `java cli.ExperimentRunner 10000 results.csv`
 
 Expected results:
