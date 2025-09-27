@@ -51,3 +51,18 @@ Expected results:
 **Cache Effects**: QuickSort benefits from locality  
 **GC Overhead**: MergeSort has predictable allocation patterns  
 **Branch Prediction**: QuickSort's random access may hurt prediction
+
+## Benchmarking with JMH
+
+### Running Benchmarks
+
+```bash
+# Run all benchmarks
+mvn clean package
+java -jar target/benchmarks.jar
+
+# Run specific benchmark
+mvn exec:java -Dexec.mainClass="org.openjdk.jmh.Main" -Dexec.args="SelectVsSortBenchmark"
+
+# Run with specific parameters
+mvn exec:java -Dexec.mainClass="org.openjdk.jmh.Main" -Dexec.args=".* -f 2 -wi 3 -i 5"
