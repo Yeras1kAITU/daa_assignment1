@@ -38,7 +38,7 @@
 ## Performance Measurements
 
 Compile by: `javac cli\ExperimentRunner.java algorithms\MergeSort.java algorithms\QuickSort.java metrics\*.java`
-Run experiments with: `java cli.ExperimentRunner 10000 results.csv`
+Run experiments with: `java cli.ExperimentRunner 10000 benchmark_results.csv`
 
 Expected results:
 - MergeSort: Stable Θ(n log n) time, moderate constant factors
@@ -66,3 +66,31 @@ mvn exec:java -Dexec.mainClass="org.openjdk.jmh.Main" -Dexec.args="SelectVsSortB
 
 # Run with specific parameters
 mvn exec:java -Dexec.mainClass="org.openjdk.jmh.Main" -Dexec.args=".* -f 2 -wi 3 -i 5"
+```
+
+## Analysis and Results
+
+### Theoretical Analysis
+See [docs/analysis.md](docs/analysis.md) for detailed recurrence analysis using:
+- Master Theorem (Cases 1, 2, 3)
+- Akra-Bazzi method intuition
+- Time and space complexity derivations
+
+### Experimental Results
+Run the plot generation script:
+```bash
+python3 scripts/generate_plots.py
+````
+
+
+## 7. Test the complete workflow
+
+```bash
+# Clean start
+mvn clean compile
+
+# Generate data
+mvn exec:java "-Dexec.mainClass=cli.ExperimentRunner" "-Dexec.args=1000 results/experimental_data.csv"
+
+# Generate plots
+mvn exec:java "-Dexec.mainClass=plot.PlotGenerator" "-Dexec.args=results/experimental_data.csv"

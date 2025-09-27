@@ -7,11 +7,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
 
-//compile with: javac cli\ExperimentRunner.java algorithms\MergeSort.java algorithms\QuickSort.java metrics\*.java
-//example of use: java cli.ExperimentRunner 10000 results.csv
 public class ExperimentRunner {
 
-    static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         if (args.length < 2) {
             System.out.println("Usage: java ExperimentRunner <max_n> <output.csv>");
             return;
@@ -94,7 +92,7 @@ public class ExperimentRunner {
     }
 
     private static int[] generateRandomArray(int n) {
-        Random random = new Random(42); // Fixed seed for reproducibility
+        Random random = new Random(42);
         int[] array = new int[n];
         for (int i = 0; i < n; i++) {
             array[i] = random.nextInt(n * 10);
