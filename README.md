@@ -1,4 +1,5 @@
 # Divide-and-Conquer Algorithms Analysis
+Done by: Yerassyl Ibrayev SE-2425
 
 ## Architecture Notes
 
